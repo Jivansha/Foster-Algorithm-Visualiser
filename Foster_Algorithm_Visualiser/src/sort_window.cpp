@@ -2,7 +2,6 @@
 #include "ui_sort_window.h"
 #include <QMessageBox>
 #include <QTime>
-#include <QDebug>
 #include <QRect>
 
 sort_window::sort_window(QWidget *parent) :
