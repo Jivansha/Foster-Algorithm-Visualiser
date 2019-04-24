@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>551</width>
-    <height>424</height>
+    <width>568</width>
+    <height>421</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>340</x>
+     <x>360</x>
      <y>10</y>
      <width>201</width>
      <height>401</height>
@@ -167,7 +167,7 @@ selection-background-color: rgb(83, 83, 83);
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>290</y>
+      <y>270</y>
       <width>81</width>
       <height>16</height>
      </rect>
@@ -183,8 +183,8 @@ color:white;</string>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>340</y>
+      <x>30</x>
+      <y>320</y>
       <width>166</width>
       <height>21</height>
      </rect>
@@ -210,7 +210,7 @@ color:white;</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>250</y>
+      <y>220</y>
       <width>177</width>
       <height>43</height>
      </rect>
@@ -263,7 +263,7 @@ color:white;</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>310</y>
+      <y>290</y>
       <width>151</width>
       <height>20</height>
      </rect>
@@ -314,46 +314,14 @@ color:white;</string>
      <string>Enter</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_randomip">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>220</y>
-      <width>161</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(243, 243, 243);
-selection-background-color: rgb(83, 83, 83);
-
-</string>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QGroupBox" name="groupBox_2">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>321</width>
-     <height>281</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(85, 85, 85);</string>
-   </property>
-   <property name="title">
-    <string>Visualisation</string>
-   </property>
   </widget>
   <widget class="QGroupBox" name="groupBox_3">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>300</y>
-     <width>321</width>
-     <height>111</height>
+     <y>280</y>
+     <width>341</width>
+     <height>131</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -361,6 +329,16 @@ selection-background-color: rgb(83, 83, 83);
    </property>
    <property name="title">
     <string>Algorithm Description</string>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="graphicsView">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>341</width>
+     <height>261</height>
+    </rect>
    </property>
   </widget>
  </widget>
