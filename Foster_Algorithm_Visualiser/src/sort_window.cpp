@@ -2,7 +2,7 @@
 #include "ui_sort_window.h"
 #include <QMessageBox>
 #include <QTime>
-#include <QRect>
+
 
 sort_window::sort_window(QWidget *parent) :
     QDialog(parent),
@@ -55,11 +55,15 @@ void sort_window::on_enter_cip_clicked()
         QStringList customip = inputstr.split(" ",QString::SkipEmptyParts);
         int custom_input[60];
         int N=0;
+        int max=0;
             foreach(QString num, customip){
                 custom_input[N]=num.toInt();
+                if(custom_input[N]>max){
+                    max=custom_input[N];
+                }
                 N++;
             }
-            //call bars making function- arg: *custom_input,N
+            drawBars(custom_input,N,max);
     }
 }
 
@@ -69,15 +73,39 @@ void sort_window::on_enter_seql_clicked()
         QString inputN = ui->lineEdit_seqlength->text();
         int N=inputN.toInt();
         int random_input[50];
+        int max=0;
         QString rand_ip;
             for(int i=0;i<N;i++){
                   random_input[i]=qrand()%100;
+                  if(random_input[i]>max){
+                      max=random_input[i];
+                  }
                   rand_ip.append(QString::number(random_input[i]));
                   rand_ip.append(" ");
             }
-            ui->lineEdit_randomip->setText(rand_ip);
-
-
-       //call bars making function- arg: *random_input,N
+            ui->lineEdit_customip->setText(rand_ip);
+        drawBars(random_input,N,max);
      }
+}
+
+void sort_window :: drawBars(int *ar,int m,int N){
+    scene = new QGraphicsScene(this);
+    ui->graphicsView->setScene(scene);
+    QPen bpen("black");
+
+    QPainterPath path;
+
+    for(int i=0;i<m;i++){
+
+            if(i==0)
+                rect = scene->addRect(QRect(10+(300*i/m)+(i*20/m),N-ar[i],300/m,ar[i]),bpen,color1);
+            else if(i%2==0)
+                rect = scene->addRect(QRect(10+(300*i/m)+(i*20/m),N-ar[i],300/m,ar[i]),bpen,color1);
+            else if(i%2!=0)
+                rect = scene->addRect(QRect(10+(300*i/m)+(i*20/m),N-ar[i],300/m,ar[i]),bpen,color2);
+
+            path.addText(10+(300*i/m)+(i*20/m),N-10-ar[i], QFont("Arial", 200/m) ,QString::number(ar[i]));
+            scene->addPath(path, QPen(QBrush("white"), 1), QBrush("white"));
+
+    }
 }

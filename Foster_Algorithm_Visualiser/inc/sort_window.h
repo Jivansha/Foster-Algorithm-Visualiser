@@ -2,7 +2,9 @@
 #define SORT_WINDOW_H
 
 #include <QDialog>
-#include <QList>
+#include <QtCore>
+#include <QtGui>
+#include <QGraphicsScene>
 
 
 namespace Ui {
@@ -15,7 +17,9 @@ class sort_window : public QDialog
 
 public:
     explicit sort_window(QWidget *parent = nullptr);
+    void drawBars(int *ar,int m,int N);
     ~sort_window();
+
 
 private slots:
     void on_pushButton_cancel_sort_clicked();
@@ -29,7 +33,10 @@ private slots:
 
 private:
     Ui::sort_window *ui;
-    QList<int> input_array;
+    QGraphicsScene *scene;
+    QGraphicsRectItem *rect;
+    QColor color1 = {255,210,228,255};
+    QColor color2 = {255,170,0,255};
 
 };
 
