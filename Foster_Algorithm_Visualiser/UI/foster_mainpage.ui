@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>421</width>
+    <height>316</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -33,9 +33,9 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>299</x>
+      <x>320</x>
       <y>10</y>
-      <width>91</width>
+      <width>98</width>
       <height>211</height>
      </rect>
     </property>
@@ -45,10 +45,10 @@
     <widget class="QPushButton" name="sorting_tab">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>20</y>
-       <width>71</width>
-       <height>61</height>
+       <x>9</x>
+       <y>67</y>
+       <width>80</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -61,11 +61,30 @@ color: white;
       <string>Sorting</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="search_tab">
+     <property name="geometry">
+      <rect>
+       <x>9</x>
+       <y>125</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(148, 148, 148);
+font: 16pt &quot;Tw Cen MT Condensed Extra Bold&quot;;
+color: white;
+</string>
+     </property>
+     <property name="text">
+      <string>Searching</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QPushButton" name="close_tab">
     <property name="geometry">
      <rect>
-      <x>319</x>
+      <x>340</x>
       <y>230</y>
       <width>71</width>
       <height>20</height>
@@ -80,13 +99,89 @@ font: 14pt &quot;Tw Cen MT Condensed&quot;;</string>
      <string>Close</string>
     </property>
    </widget>
+   <widget class="QLabel" name="foster_info">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>110</y>
+      <width>91</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Grape Demo</family>
+      <pointsize>36</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>FOSTER </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>120</y>
+      <width>181</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Grape Demo</family>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(236, 236, 236);</string>
+    </property>
+    <property name="text">
+     <string>Algorithm Visualiser</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>170</y>
+      <width>271</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(221, 221, 221);</string>
+    </property>
+    <property name="text">
+     <string>Foster is a GUI based application aimed at enhancing students exprience of</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>185</y>
+      <width>271</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(228, 228, 228);</string>
+    </property>
+    <property name="text">
+     <string>learning various popular algorithms in progrmming.</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>421</width>
      <height>17</height>
     </rect>
    </property>

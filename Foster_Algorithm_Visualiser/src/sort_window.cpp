@@ -1,8 +1,6 @@
 #include "sort_window.h"
 #include "ui_sort_window.h"
-#include <QMessageBox>
 #include <QTime>
-
 
 sort_window::sort_window(QWidget *parent) :
     QDialog(parent),
@@ -11,16 +9,22 @@ sort_window::sort_window(QWidget *parent) :
     ui->setupUi(this);
     ui->comboBox_selectalgo->addItem("Select Sort");
     ui->comboBox_selectalgo->addItem("Bubble Sort");
-    ui->comboBox_selectalgo->addItem("Quick Sort");
+    ui->comboBox_selectalgo->addItem("Selection Sort");
 
     ui->comboBox_selectipop->addItem("Select Input");
     ui->comboBox_selectipop->addItem("Custom Input");
     ui->comboBox_selectipop->addItem("Random Input");
-    ui->lineEdit_seqlength->setValidator( new QIntValidator(0,50, this));
+    ui->lineEdit_seqlength->setValidator( new QIntValidator(2,50, this));
     ui->lineEdit_customip->setClearButtonEnabled(true);
     ui->lineEdit_seqlength->setClearButtonEnabled(true);
     ui->lineEdit_customip->setMaxLength(100);
-
+    ui->speed_comboBox->addItem("1X");
+    ui->speed_comboBox->addItem("0.5X");
+    ui->speed_comboBox->addItem("1.5X");
+    ui->speed_comboBox->addItem("2X");
+    scene = new QGraphicsScene(this);
+    ui->graphicsView->setScene(scene);
+    ui->graphicsView->setRenderHint(QPainter::Antialiasing);
 }
 
 sort_window::~sort_window()
@@ -34,17 +38,14 @@ void sort_window::on_pushButton_cancel_sort_clicked()
     this->close();
 }
 
-
-void sort_window::on_comboBox_selectalgo_currentTextChanged(const QString &arg1)
+void sort_window::on_play_tab_clicked()
 {
-
-    if(arg1 == "Bubble Sort"){
-        QMessageBox :: information(this, "sort", arg1);     //do something
+    if(ui->comboBox_selectalgo->currentText()=="Bubble Sort"){
+        bubble_sort();
     }
-    if(arg1 == "Quick Sort"){
-        QMessageBox :: information(this, "sort", arg1);     //do something
+    if(ui->comboBox_selectalgo->currentText()=="Selection Sort"){
+        selection_sort();
     }
-
 }
 
 
@@ -53,17 +54,18 @@ void sort_window::on_enter_cip_clicked()
     if(ui->comboBox_selectipop->currentText() == "Custom Input"){
         QString inputstr = ui->lineEdit_customip->text();
         QStringList customip = inputstr.split(" ",QString::SkipEmptyParts);
-        int custom_input[60];
-        int N=0;
-        int max=0;
+
+        N=0;
+        max=0;
             foreach(QString num, customip){
-                custom_input[N]=num.toInt();
-                if(custom_input[N]>max){
-                    max=custom_input[N];
+                input[N]=num.toInt();
+                if(input[N]>max){
+                    max=input[N];
                 }
                 N++;
             }
-            drawBars(custom_input,N,max);
+            ui->lineEdit_seqlength->setText(QString::number(N));
+            drawBars(input,N,max,-1,-1);
     }
 }
 
@@ -72,40 +74,145 @@ void sort_window::on_enter_seql_clicked()
     if(ui->comboBox_selectipop->currentText() == "Random Input"){
         QString inputN = ui->lineEdit_seqlength->text();
         int N=inputN.toInt();
-        int random_input[50];
         int max=0;
         QString rand_ip;
             for(int i=0;i<N;i++){
-                  random_input[i]=qrand()%100;
-                  if(random_input[i]>max){
-                      max=random_input[i];
+                  input[i]=qrand()%100;
+                  if(input[i]>max){
+                      max=input[i];
                   }
-                  rand_ip.append(QString::number(random_input[i]));
+                  rand_ip.append(QString::number(input[i]));
                   rand_ip.append(" ");
             }
             ui->lineEdit_customip->setText(rand_ip);
-        drawBars(random_input,N,max);
+        drawBars(input,N,max,-1,-1);
      }
 }
 
-void sort_window :: drawBars(int *ar,int m,int N){
-    scene = new QGraphicsScene(this);
-    ui->graphicsView->setScene(scene);
-    QPen bpen("black");
+void sort_window::bubble_sort(){
+    int c=0;
+    QString info="";
+    QString inputN = ui->lineEdit_seqlength->text();
 
+    int no=inputN.toInt();
+    int m=0;
+
+    for(int k=0;k<no;k++){
+        if(input[k]>m)
+            m=input[k];
+    }
+    for (int i=0;i<no-1;i++){
+        for (int j=0;j<no-i-1;j++){
+            info = "Comparing element at index ";
+            info += QString::number(j);
+            info += " and index ";
+            info += QString::number(j+1);
+            ui->info_text->setPlainText(info);
+
+            drawBars(input,no,m,j,j+1);
+            if (input[j] > input[j+1]){
+                info = "";
+                info += "Swapping element at index ";
+                info += QString::number(j);
+                info += " and index ";
+                info += QString::number(j+1);
+                ui->info_text->setPlainText(info);
+               std::swap(input[j],input[j+1]);
+               drawBars(input,no,m,-1,-1);
+            }
+            c++;
+            ui->lcdNumber_comaprision->display(c);
+        }
+    }
+
+}
+
+void sort_window::selection_sort()
+{
+    int min_idx;
+    int c=0;
+    QString inputN = ui->lineEdit_seqlength->text();
+    QString info="";
+    int no=inputN.toInt();
+    int m=0;
+
+    for(int k=0;k<no;k++){
+        if(input[k]>m)
+            m=input[k];
+    }
+        for (int i=0;i<no;i++){
+            min_idx = i;
+            for (int j=i+1;j<no;j++){
+                info = "Comparing element at index ";
+                info += QString::number(j);
+                info += " and index ";
+                info += QString::number(min_idx);
+                ui->info_text->setPlainText(info);
+                drawBars(input,no,m,j,min_idx);
+                if (input[j] < input[min_idx]){
+                    min_idx=j;
+                }
+                c++;
+                ui->lcdNumber_comaprision->display(c);
+           }
+            info = "";
+            info += "Swapping element at index ";
+            info += QString::number(min_idx);
+            info += " and index ";
+            info += QString::number(i);
+            ui->info_text->setPlainText(info);
+           std::swap(input[min_idx],input[i]);
+           drawBars(input,no,m,-1,-1);
+        }
+}
+
+int sort_window::speed_animation(){
+    QString speed =  ui->speed_comboBox->currentText();
+    if(speed == "0.5X")
+        return (7);
+    else if(speed == "1X")
+        return (5);
+    else if(speed == "1.5X")
+        return (3);
+    else if(speed == "2X")
+        return (1);
+}
+
+void sort_window :: drawBars(int *ar,int no,int _N,int a,int b){
+    scene->clear();
+    QPen bpen("black");
+    QBrush brush("white");
     QPainterPath path;
 
-    for(int i=0;i<m;i++){
+    for(int i=0;i<no;i++){
 
-            if(i==0)
-                rect = scene->addRect(QRect(10+(300*i/m)+(i*20/m),N-ar[i],300/m,ar[i]),bpen,color1);
+            if(i==a || i==b)
+                brush.setColor(color3);
+            else if(i==0)
+                brush.setColor(color1);
             else if(i%2==0)
-                rect = scene->addRect(QRect(10+(300*i/m)+(i*20/m),N-ar[i],300/m,ar[i]),bpen,color1);
+                brush.setColor(color1);
             else if(i%2!=0)
-                rect = scene->addRect(QRect(10+(300*i/m)+(i*20/m),N-ar[i],300/m,ar[i]),bpen,color2);
+                brush.setColor(color2);
 
-            path.addText(10+(300*i/m)+(i*20/m),N-10-ar[i], QFont("Arial", 200/m) ,QString::number(ar[i]));
+            QGraphicsRectItem *rect = new QGraphicsRectItem(10+(300*i/no)+(i*20/no),_N-ar[i],300/no,ar[i]);
+            rect->setBrush(brush);
+            scene->addItem(rect);
+
+            path.addText(10+(300*i/no)+(i*20/no),_N-10-ar[i], QFont("Arial", 200/no) ,QString::number(ar[i]));
             scene->addPath(path, QPen(QBrush("white"), 1), QBrush("white"));
 
     }
+    delay(speed_animation());
+
 }
+
+void sort_window::delay(int t)
+{
+    QTime dieTime= QTime::currentTime().addSecs(t);
+    while (QTime::currentTime() < dieTime)
+        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+}
+
+
+

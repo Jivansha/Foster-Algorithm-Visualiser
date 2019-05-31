@@ -1,6 +1,7 @@
 #include "foster_mainpage.h"
 #include "ui_foster_mainpage.h"
 #include "sort_window.h"
+#include "search_window.h"
 
 Foster_MainPage::Foster_MainPage(QWidget *parent) :
     QMainWindow(parent),
@@ -23,7 +24,16 @@ void Foster_MainPage::on_sorting_tab_clicked()
     sortwindow.exec();
 }
 
+void Foster_MainPage::on_search_tab_clicked()
+{
+    search_window searchwindow;
+    searchwindow.setModal(true);
+    searchwindow.exec();
+}
+
 void Foster_MainPage::on_close_tab_clicked()
 {
     QApplication::exit();
 }
+
+

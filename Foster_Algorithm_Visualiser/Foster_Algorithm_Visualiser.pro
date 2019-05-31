@@ -27,14 +27,17 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         foster_mainpage.cpp \
+    search_window.cpp \
     sort_window.cpp
 
 HEADERS += \
         foster_mainpage.h \
+    search_window.h \
     sort_window.h
 
 FORMS += \
         foster_mainpage.ui \
+    search_window.ui \
     sort_window.ui
 
 # Default rules for deployment.
