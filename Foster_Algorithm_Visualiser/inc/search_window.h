@@ -22,8 +22,11 @@ public:
     explicit search_window(QWidget *parent = nullptr);
     void delay(int t);
     void drawBars(int *ar, int no, int _N, int a, int b);
+    void linear_search();
+    void binary_search();
     int speed_animation();
     ~search_window();    
+
 
 private slots:
     void on_cancel_bt_clicked();

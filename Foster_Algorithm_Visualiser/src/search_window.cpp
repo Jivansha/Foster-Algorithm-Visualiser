@@ -6,6 +6,8 @@ search_window::search_window(QWidget *parent) :
     ui(new Ui::search_window)
 {
     ui->setupUi(this);
+    ui->algo_comboBox->addItem("Select Algo");
+    ui->algo_comboBox->addItem("Linear Search");
     ui->input_lineEdit->setClearButtonEnabled(true);
     ui->input_lineEdit->setMaxLength(100);
     ui->speed_comboBox->addItem("1X");
@@ -45,7 +47,6 @@ void search_window::on_enter_ip_clicked()
         ui->size_lineEdit->setText(QString::number(N));
         drawBars(input,N,max,-1,-1);
 }
-
 
 
 void search_window :: drawBars(int *ar,int no,int _N,int a,int b){
@@ -96,12 +97,23 @@ void search_window::delay(int t)
 
 void search_window::on_play_tab_clicked()
 {
+    if(ui->algo_comboBox->currentText()=="Linear Search"){
+        linear_search();
+    }
+
+}
+
+void search_window::on_enter_no_clicked(){
+    value= ui->no_lineEdit->text().toInt();
+}
+
+void search_window::linear_search(){
     int c=0;
     int flag=0;
     QString info="";
-    value= ui->no_lineEdit->text().toInt();
+    value = ui->no_lineEdit->text().toInt();
     for(int i=0;i<N;i++){
-        info = "Comparing elements at index ";
+        info = "Complexity - O(N)\nComparing elements at index ";
         info += QString::number(i+1);
         info +=" and ";
         info += QString::number(value);
@@ -130,8 +142,4 @@ void search_window::on_play_tab_clicked()
         info ="Element not found in array.";
         ui->info_edit->setPlainText(info);
     }
-}
-
-void search_window::on_enter_no_clicked(){
-    value= ui->no_lineEdit->text().toInt();
 }

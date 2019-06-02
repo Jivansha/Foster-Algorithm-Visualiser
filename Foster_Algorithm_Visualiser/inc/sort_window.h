@@ -24,6 +24,7 @@ public:
     void drawBars(int *ar,int no,int _N,int a,int b);
     void bubble_sort();
     void selection_sort();
+    void insertion_sort();
     int speed_animation();
     void delay(int t);
     ~sort_window();

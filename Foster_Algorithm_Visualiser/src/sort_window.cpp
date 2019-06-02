@@ -10,7 +10,7 @@ sort_window::sort_window(QWidget *parent) :
     ui->comboBox_selectalgo->addItem("Select Sort");
     ui->comboBox_selectalgo->addItem("Bubble Sort");
     ui->comboBox_selectalgo->addItem("Selection Sort");
-
+    ui->comboBox_selectalgo->addItem("Insertion Sort");
     ui->comboBox_selectipop->addItem("Select Input");
     ui->comboBox_selectipop->addItem("Custom Input");
     ui->comboBox_selectipop->addItem("Random Input");
@@ -45,6 +45,9 @@ void sort_window::on_play_tab_clicked()
     }
     if(ui->comboBox_selectalgo->currentText()=="Selection Sort"){
         selection_sort();
+    }
+    if(ui->comboBox_selectalgo->currentText()=="Insertion Sort"){
+        insertion_sort();
     }
 }
 
@@ -103,7 +106,8 @@ void sort_window::bubble_sort(){
     }
     for (int i=0;i<no-1;i++){
         for (int j=0;j<no-i-1;j++){
-            info = "Comparing element at index ";
+            info = "Complexity - O(N^2)";
+            info += "\nComparing element at index ";
             info += QString::number(j);
             info += " and index ";
             info += QString::number(j+1);
@@ -111,8 +115,8 @@ void sort_window::bubble_sort(){
 
             drawBars(input,no,m,j,j+1);
             if (input[j] > input[j+1]){
-                info = "";
-                info += "Swapping element at index ";
+                info = "Complexity - O(N^2)";
+                info += "\nSwapping element at index ";
                 info += QString::number(j);
                 info += " and index ";
                 info += QString::number(j+1);
@@ -124,11 +128,10 @@ void sort_window::bubble_sort(){
             ui->lcdNumber_comaprision->display(c);
         }
     }
-
+    drawBars(input,no,m,-1,-1);
 }
 
-void sort_window::selection_sort()
-{
+void sort_window::selection_sort(){
     int min_idx;
     int c=0;
     QString inputN = ui->lineEdit_seqlength->text();
@@ -143,9 +146,10 @@ void sort_window::selection_sort()
         for (int i=0;i<no;i++){
             min_idx = i;
             for (int j=i+1;j<no;j++){
-                info = "Comparing element at index ";
+                info = "Complexity - O(N^2)";
+                info += "\nComparing element at index ";
                 info += QString::number(j);
-                info += " and index ";
+                info += " and minimum value index ";
                 info += QString::number(min_idx);
                 ui->info_text->setPlainText(info);
                 drawBars(input,no,m,j,min_idx);
@@ -155,8 +159,8 @@ void sort_window::selection_sort()
                 c++;
                 ui->lcdNumber_comaprision->display(c);
            }
-            info = "";
-            info += "Swapping element at index ";
+            info = "Complexity - O(N^2)";
+            info += "\nSwapping element at index ";
             info += QString::number(min_idx);
             info += " and index ";
             info += QString::number(i);
@@ -164,6 +168,45 @@ void sort_window::selection_sort()
            std::swap(input[min_idx],input[i]);
            drawBars(input,no,m,-1,-1);
         }
+}
+
+void sort_window::insertion_sort(){
+    int temp,j;
+    int c=0;
+    QString inputN = ui->lineEdit_seqlength->text();
+    QString info="";
+    int no=inputN.toInt();
+    int m=0;
+
+    for(int k=0;k<no;k++){
+        if(input[k]>m)
+            m=input[k];
+    }
+    for(int i=1;i<=no-1;i++){
+            temp=input[i];
+            j=i-1;
+
+            while((temp<input[j]) && (j>=0)){
+                info = "Complexity - O(N^2)";
+                info += "\nComparing element at index ";
+                info += QString::number(i);
+                info += " and index ";
+                info += QString::number(j);
+                ui->info_text->setPlainText(info);
+                delay(speed_animation());
+                input[j+1]=input[j];
+                j=j-1;
+                info = "Complexity - O(N^2)\nShifting element at index ";
+                info += QString::number(j+1);
+                ui->info_text->setPlainText(info);
+                c++;
+                ui->lcdNumber_comaprision->display(c);
+                delay(speed_animation());
+            }
+            input[j+1]=temp;
+            drawBars(input,no,m,i,j+1);
+     }
+    drawBars(input,no,m,-1,-1);
 }
 
 int sort_window::speed_animation(){
@@ -209,10 +252,7 @@ void sort_window :: drawBars(int *ar,int no,int _N,int a,int b){
 
 void sort_window::delay(int t)
 {
-    QTime dieTime= QTime::currentTime().addSecs(t);
-    while (QTime::currentTime() < dieTime)
+    QTime die_time= QTime::currentTime().addSecs(t);
+    while (QTime::currentTime() < die_time)
         QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
 }
-
-
-
