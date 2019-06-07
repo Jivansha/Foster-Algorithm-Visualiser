@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>421</width>
+    <width>438</width>
     <height>316</height>
    </rect>
   </property>
@@ -45,8 +45,8 @@
     <widget class="QPushButton" name="sorting_tab">
      <property name="geometry">
       <rect>
-       <x>9</x>
-       <y>67</y>
+       <x>10</x>
+       <y>30</y>
        <width>80</width>
        <height>31</height>
       </rect>
@@ -64,8 +64,8 @@ color: white;
     <widget class="QPushButton" name="search_tab">
      <property name="geometry">
       <rect>
-       <x>9</x>
-       <y>125</y>
+       <x>10</x>
+       <y>70</y>
        <width>81</width>
        <height>31</height>
       </rect>
@@ -78,6 +78,25 @@ color: white;
      </property>
      <property name="text">
       <string>Searching</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="options_tab">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>170</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(148, 148, 148);
+font: 16pt &quot;Tw Cen MT Condensed Extra Bold&quot;;
+color: white;
+</string>
+     </property>
+     <property name="text">
+      <string>Options</string>
      </property>
     </widget>
    </widget>
@@ -143,37 +162,37 @@ font: 14pt &quot;Tw Cen MT Condensed&quot;;</string>
      <string>Algorithm Visualiser</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>170</y>
-      <width>271</width>
-      <height>16</height>
+      <y>160</y>
+      <width>281</width>
+      <height>41</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(221, 221, 221);</string>
-    </property>
-    <property name="text">
-     <string>Foster is a GUI based application aimed at enhancing students exprience of</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>185</y>
-      <width>271</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(228, 228, 228);</string>
-    </property>
-    <property name="text">
-     <string>learning various popular algorithms in progrmming.</string>
-    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="styleSheet">
+        <string notr="true">color: rgb(221, 221, 221);</string>
+       </property>
+       <property name="text">
+        <string>Foster is a GUI based application aimed at enhancing students exprience of</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="styleSheet">
+        <string notr="true">color: rgb(228, 228, 228);</string>
+       </property>
+       <property name="text">
+        <string>learning various popular algorithms in progrmming.</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -181,7 +200,7 @@ font: 14pt &quot;Tw Cen MT Condensed&quot;;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>421</width>
+     <width>438</width>
      <height>17</height>
     </rect>
    </property>

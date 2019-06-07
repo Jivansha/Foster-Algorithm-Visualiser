@@ -175,6 +175,11 @@ selection-background-color: rgb(83, 83, 83);
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QPushButton" name="play_tab">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(89, 89, 89);
+color: white;
+font: 14pt &quot;Tw Cen MT Condensed&quot;;</string>
+       </property>
        <property name="text">
         <string>Play</string>
        </property>
@@ -182,6 +187,11 @@ selection-background-color: rgb(83, 83, 83);
      </item>
      <item>
       <widget class="QPushButton" name="pushButton_cancel_sort">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(89, 89, 89);
+color: white;
+font: 14pt &quot;Tw Cen MT Condensed&quot;;</string>
+       </property>
        <property name="text">
         <string>Cancel</string>
        </property>
@@ -257,6 +267,11 @@ selection-background-color: rgb(83, 83, 83);</string>
       <height>20</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(89, 89, 89);
+color: white;
+font: 14pt &quot;Tw Cen MT Condensed&quot;;</string>
+    </property>
     <property name="text">
      <string>Enter</string>
     </property>
@@ -269,6 +284,11 @@ selection-background-color: rgb(83, 83, 83);</string>
       <width>41</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(89, 89, 89);
+color: white;
+font: 14pt &quot;Tw Cen MT Condensed&quot;;</string>
     </property>
     <property name="text">
      <string>Enter</string>

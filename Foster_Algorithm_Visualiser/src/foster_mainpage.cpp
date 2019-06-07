@@ -20,7 +20,7 @@ Foster_MainPage::~Foster_MainPage()
 void Foster_MainPage::on_sorting_tab_clicked()
 {
     sort_window sortwindow;
-    sortwindow.setModal(true);      //modal approach- can't access main window
+    sortwindow.setModal(true);
     sortwindow.exec();
 }
 
@@ -31,9 +31,14 @@ void Foster_MainPage::on_search_tab_clicked()
     searchwindow.exec();
 }
 
+void Foster_MainPage::on_options_tab_clicked()
+{
+    Options optionwindow;
+    optionwindow.setModal(true);
+    optionwindow.exec();
+}
+
 void Foster_MainPage::on_close_tab_clicked()
 {
     QApplication::exit();
 }
-
-

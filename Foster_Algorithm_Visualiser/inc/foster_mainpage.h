@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "sort_window.h"
 #include "search_window.h"
+#include "options.h"
 
 namespace Ui {
 class Foster_MainPage;
@@ -24,10 +25,13 @@ private slots:
 
     void on_search_tab_clicked();
 
+    void on_options_tab_clicked();
+
 private:
     Ui::Foster_MainPage *ui;
     sort_window *sortwindow;
     search_window *searchwindow;
+    Options *optionwindow;
 };
 
 #endif // FOSTER_MAINPAGE_H

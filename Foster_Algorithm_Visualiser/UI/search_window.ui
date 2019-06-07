@@ -75,10 +75,15 @@ selection-background-color: rgb(83, 83, 83);</string>
     <property name="geometry">
      <rect>
       <x>400</x>
-      <y>20</y>
+      <y>50</y>
       <width>71</width>
       <height>21</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(89, 89, 89);
+color: white;
+font: 14pt &quot;Tw Cen MT Condensed&quot;;</string>
     </property>
     <property name="text">
      <string>Cancel</string>
@@ -124,6 +129,11 @@ selection-background-color: rgb(83, 83, 83);</string>
       <height>16</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(89, 89, 89);
+color: white;
+font: 14pt &quot;Tw Cen MT Condensed&quot;;</string>
+    </property>
     <property name="text">
      <string>Enter</string>
     </property>
@@ -163,10 +173,15 @@ color:white;</string>
     <property name="geometry">
      <rect>
       <x>400</x>
-      <y>50</y>
+      <y>20</y>
       <width>71</width>
       <height>21</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(89, 89, 89);
+color: white;
+font: 14pt &quot;Tw Cen MT Condensed&quot;;</string>
     </property>
     <property name="text">
      <string>Play</string>
@@ -211,6 +226,11 @@ selection-background-color: rgb(83, 83, 83);</string>
       <width>41</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(89, 89, 89);
+color: white;
+font: 14pt &quot;Tw Cen MT Condensed&quot;;</string>
     </property>
     <property name="text">
      <string>Enter</string>
