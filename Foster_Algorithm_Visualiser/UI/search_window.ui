@@ -25,6 +25,9 @@
      <height>121</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(85, 85, 85);</string>
+   </property>
    <property name="title">
     <string/>
    </property>

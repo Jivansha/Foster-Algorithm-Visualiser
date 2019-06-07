@@ -21,7 +21,6 @@ sort_window::sort_window(QWidget *parent) :
     ui->speed_comboBox->addItem("1X");
     ui->speed_comboBox->addItem("0.5X");
     ui->speed_comboBox->addItem("1.5X");
-    ui->speed_comboBox->addItem("2X");
     scene = new QGraphicsScene(this);
     ui->graphicsView->setScene(scene);
     ui->graphicsView->setRenderHint(QPainter::Antialiasing);
@@ -212,12 +211,10 @@ void sort_window::insertion_sort(){
 int sort_window::speed_animation(){
     QString speed =  ui->speed_comboBox->currentText();
     if(speed == "0.5X")
-        return (7);
-    else if(speed == "1X")
         return (5);
-    else if(speed == "1.5X")
+    else if(speed == "1X")
         return (3);
-    else if(speed == "2X")
+    else if(speed == "1.5X")
         return (1);
 }
 
