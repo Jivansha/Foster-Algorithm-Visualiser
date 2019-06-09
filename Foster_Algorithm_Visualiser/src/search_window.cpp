@@ -183,7 +183,7 @@ void search_window::binary_search(){
                 info += "\nLast index of Block :";
                 info += QString::number(r);
                 ui->info_edit->setPlainText(info);
-
+                delay(speed_animation());
             }
 
             else{
@@ -196,6 +196,7 @@ void search_window::binary_search(){
                 info += "\nLast index of Block :";
                 info += QString::number(r);
                 ui->info_edit->setPlainText(info);
+                delay(speed_animation());
             }
         }
     if(flag!=1){
