@@ -150,7 +150,7 @@ void search_window::binary_search(){
     info = "Complexity - O(log(N))\nSorting array";
     ui->info_edit->setPlainText(info);
     drawBars(input,N,max,-1,-1,-1);
-    std::sort(input, input + (N-1));
+    std::sort(input, input + N);
     int l=0;
     int r=N;
     drawBars(input,N,max,-1,l,r-1);
