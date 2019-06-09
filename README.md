@@ -11,10 +11,12 @@ To run the application go to the release section of this repository and download
 # Project Outlook
 
  1. Main Page
+ 
       Tab for navigating to various Sorting Algorithms, Searching Algorithms and Options and product support.
       Close tab to close application.
       
  2. Sorting Algorithm Page
+ 
         Select a Sorting Algorithm from available :
                  i. Bubble Sort
                 ii. Selection Sort
@@ -22,15 +24,24 @@ To run the application go to the release section of this repository and download
         Select how you want to enter input :
                  i. Provide Custom (User) Input
                 ii. Provide any Random Input 
+                
        Enter your custom input (integers separated by spaces) or random input (size of the array) in respective slots & press Enter.
+       
        Change the speed of animation if required.
+       
        Click Play tab to start animation.
        
+       
  3. Searching Algorithm Page
+ 
         Select a Searching Algorithm from available :
                i. Linear Search
               ii. Binary Search
+              
         Then enter your custom input (integers separated by spaces) and press Enter.
+        
         Enter the number to be searched.
+        
         Change the speed of animation if required.
+        
         Click Play tab to start animation.
