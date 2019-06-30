@@ -3,6 +3,8 @@
 A desktop application to visualize certain algorithms to ease learning for students.
 Foster is a GUI based learning platform based in C++ where different popular algorithms will be available for learning purpose for the user. It uses the knowledge of various algorithms and C++ language and Qt Creator to create a desktop application for the same.
 This project is being developed under 4rt Edition of Learn It Girl Scholarship Program.
+The project is about creating a platform for practical learning for kids and beginners who wish to learn while playing. The software creates adaptive animation visuals for various user cases of different coding algorithms and performs animation of each step of solving questions through the respective algorithm. 
+
 
 # Running the Application
 
